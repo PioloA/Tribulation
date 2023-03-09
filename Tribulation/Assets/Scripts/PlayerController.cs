@@ -21,8 +21,6 @@ public class PlayerController : MonoBehaviour
     public Transform LaunchOffset;
     public int currentClip;
     public int maxClipSize = 5;
-    public int currentAmmo;
-    public int maxAmmoSize = 10;
 
     void Start()
     {
@@ -49,10 +47,6 @@ public class PlayerController : MonoBehaviour
             Fire();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reload();
-        }
 
     }
 
@@ -65,20 +59,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Reload ()
-    {
-        int reloadAmount = maxClipSize - currentClip; // how many bullets to refill current clip
-        reloadAmount = (currentAmmo - reloadAmount) >= 0 ? reloadAmount : currentAmmo;
-        currentClip += reloadAmount;
-        currentClip -= reloadAmount;
-    }
-
+    //function for ammo pick-up
     public void AddAmmo(int ammoAmount)
     {
-        currentAmmo += ammoAmount;
-        if(currentAmmo > maxAmmoSize)
+        currentClip += ammoAmount;
+        if(currentClip > maxClipSize)
         {
-            currentAmmo = maxAmmoSize;
+            currentClip = maxClipSize; //doesn't exceed the max clip size
         }
     }
 

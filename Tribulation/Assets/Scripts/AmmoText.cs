@@ -21,6 +21,6 @@ public class AmmoText : MonoBehaviour
 
     public void UpdateAmmoText()
     {
-        text.text = $"{player.currentClip} / {player.maxClipSize} | {player.currentAmmo} / {player.maxAmmoSize}";
+        text.text = $"Ammo:{player.currentClip}/{player.maxClipSize}";
     }
 }

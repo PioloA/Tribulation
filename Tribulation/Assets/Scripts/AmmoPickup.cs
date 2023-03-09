@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D collision)
+    //function when colliding with ammo pick-ups
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-        if(collision.gameObject.tag == "Player")
+        PlayerController player = collision.gameObject.GetComponentInChildren<PlayerController>(); // checks the player if it has the component
+        if(player)
         {
-            player.AddAmmo(player.maxAmmoSize);
+            player.AddAmmo(player.maxClipSize); // calls the function Addammo and adds ammo upon collision
             Destroy(gameObject);
         }
     }
