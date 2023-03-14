@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // function that spawn bullets
     void Fire ()
     {
         if(currentClip > 0)
