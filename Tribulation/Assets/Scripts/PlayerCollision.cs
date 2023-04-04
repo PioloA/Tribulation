@@ -21,6 +21,5 @@ public class PlayerCollision : MonoBehaviour
         {
             controller.enabled = false; // disables movement
         }
-
     }
 }

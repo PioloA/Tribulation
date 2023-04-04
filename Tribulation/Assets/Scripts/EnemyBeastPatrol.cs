@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyBeastPatrol : MonoBehaviour
 {
-    public float speed = 1;
+    [Header("Component")]
+    public float speed = 4;
     public bool moveRight;
-
     void Update()
     {
         if(moveRight)

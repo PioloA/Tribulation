@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [Header("Bullet")]
     public float Speed = 20f;
-    public float destroyTime = 2f;
+    private float destroyTime = 1f;
 
     //destroy object in 2 seconds if bullet did not collide
     void Start ()

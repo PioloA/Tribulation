@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator animator;
     [Header("Movement")]
     [SerializeField]private float playerSpeed = 5f;
     [SerializeField]private float jumpForce = 11f;
 
     [Header("Components")]
-    [SerializeField]private Rigidbody2D player;
+    private Rigidbody2D player;
     public LayerMask groundLayer;
 
     [Header("Collision")]
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && onGround)
         {
              player.velocity = new Vector2(player.velocity.x, jumpForce);
+             animator.SetBool("IsJumping", true);
         }
 
         //makes the player shoots bullet
