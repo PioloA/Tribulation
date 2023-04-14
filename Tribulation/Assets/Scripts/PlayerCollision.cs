@@ -21,5 +21,14 @@ public class PlayerCollision : MonoBehaviour
         {
             controller.enabled = false; // disables movement
         }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Win")
+        {
+            controller.enabled = false;
+        }
+    }
+
     }
 }

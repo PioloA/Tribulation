@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour
     public int currentClip;
     public int maxClipSize = 5;
 
+    [Header("Text")]
+    public Text WinText;
+
+    
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -48,8 +53,6 @@ public class PlayerController : MonoBehaviour
         {
             Fire();
         }
-
-
     }
 
     // function that spawn bullets
@@ -62,6 +65,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     //function for ammo pick-up
     public void AddAmmo(int ammoAmount)
     {
@@ -69,6 +73,14 @@ public class PlayerController : MonoBehaviour
         if(currentClip > maxClipSize)
         {
             currentClip = maxClipSize; //doesn't exceed the max clip size
+        }
+    }
+
+public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Win")
+        {
+            WinText.gameObject.SetActive(true);
         }
     }
 
